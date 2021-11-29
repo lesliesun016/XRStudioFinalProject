@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LeslieAssets/Ghost.unity
     guid: f18bc9f8c0dd1a446a0d224e38e679de
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5b552b0443d5e8d40bbf82c925253a0a, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6fc29a989c4547a49a212d87b8549c23, type: 2}
