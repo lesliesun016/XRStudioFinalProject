@@ -5,21 +5,50 @@ using UnityEngine;
 public class KillEnemy : MonoBehaviour
 {
     public OVRInput.Controller vacuum;
-    public OVRInput.Controller flashlight;
-    public OVRInput.Button vacuumButton;
-    public OVRInput.Button flashlightButton;
+    public OVRInput.Button button = OVRInput.Button.One;
+    public float speed = 0.2f;
+    public GameObject particleSystem;
+
+    private bool collide;
+    private GameObject enemy;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(OVRInput.GetDown(flashlightButton, flashlight))
+       if (OVRInput.Get(button, vacuum))
         {
+            particleSystem.SetActive(true);
+            if (collide)
+            {
+                enemy.transform.localScale -= new Vector3(speed, speed, speed);
+                if (enemy.transform.localScale == new Vector3(0, 0, 0))
+                {
+                    Destroy(enemy);
+                }
+            }
+        } else
+        {
+            particleSystem.SetActive(false);
+        }
+       
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Respawn")
+        {
+            collide = true;
+            enemy = other.gameObject;
+        } 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Respawn")
+        {
+            collide = false;
+            enemy = null;
         }
     }
 }
