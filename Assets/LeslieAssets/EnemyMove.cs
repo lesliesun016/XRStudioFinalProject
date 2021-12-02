@@ -19,13 +19,18 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!collide || !spotlight.enabled)
+        if (collide && spotlight.enabled)
         {
+            gameObject.isStatic = true;
+        }
+        else
+        {
+            gameObject.isStatic = false;
             transform.rotation = Quaternion.Euler(-90, 0, 0);
             transform.LookAt(target.position);
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        
+
         if (transform.position == target.position)
         {
             Destroy(gameObject);

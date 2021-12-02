@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 67248687}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 61.5, y: 0, z: 12.599998}
-  m_LocalScale: {x: 0.31278667, y: 0.31278667, z: 0.31278667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1343522444}
   m_RootOrder: 1
@@ -473,7 +473,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5081,8 +5081,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 5.76845, z: 1}
+  m_Center: {x: 0, y: 2.3842263, z: 0}
 --- !u!23 &329548100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5139,7 +5139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329548097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc2713b11f935054fb7833a316aac4aa, type: 3}
   m_Name: 
@@ -5455,8 +5455,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1419.0441, y: 39.284042, z: 73.95412}
-  m_Center: {x: 708.82056, y: 0.7882431, z: 7.8433456}
+  m_Size: {x: 13226.212, y: 39.284042, z: 73.95412}
+  m_Center: {x: 6612.4053, y: 0.7882431, z: 7.8433456}
 --- !u!114 &1343522443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5471,7 +5471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vacuum: 32
   button: 1
-  speed: 1
+  speed: 0.2
   particleSystem: {fileID: 67248687}
 --- !u!4 &1343522444 stripped
 Transform:
