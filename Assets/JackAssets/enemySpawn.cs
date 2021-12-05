@@ -9,8 +9,10 @@ public class enemySpawn : MonoBehaviour
     Vector3 spawnPos;
     //Vector3 enemySpawnRot;
     int spawnning;
+    //difficulty: smaller is more difficult
     int difficulty;
     int difficultyPlus;
+    int TickRef;
     
     // Start is called before the first frame update
     void Start()
@@ -18,9 +20,10 @@ public class enemySpawn : MonoBehaviour
  
             //< "Interaction Test (Script)" > ().speed;
 
-        difficulty = 5;
+        difficulty = 10;
         spawnning = 0;
         difficultyPlus = 0;
+        TickRef = 0;
         spawnEnemy();
     /*    for (int i = 0; i < 10; i++)
         {
@@ -34,7 +37,7 @@ public class enemySpawn : MonoBehaviour
     {
        // enemySpawnRot = new Vector3(-90, 0, 0);
         Quaternion enemySpawnRot = Quaternion.Euler(-90, 0, 0); //enemy spawn rot in quanternion instead of vector3
-        spawnPos = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+        spawnPos = new Vector3(Random.Range(-50f, 50f), 0, Random.Range(-50f, 50f));
             // Instantiate(enemyPrefab, playerObject.transform.position + Vector3(1,0,1) * Random.Range(-15, 15), Quaternion.identity);
             Instantiate(enemyPrefab, spawnPos, enemySpawnRot);  
     }
@@ -44,21 +47,31 @@ public class enemySpawn : MonoBehaviour
     {
         if(Mathf.Round(Time.time) % difficulty == 0)
         {
-            spawnning += 1;
-            if (spawnning % 100 == 0)
+            TickRef += 1;
+            if (TickRef == 2)
             {
-                spawnEnemy();
+               /* spawnning += 1;
+                if (spawnning % 100 == 0)
+                {*/
+                    spawnEnemy();
+                //}
             }
+        } else
+        {
+            TickRef = 0;
         }
 
         if(Mathf.Round(Time.time) % 30 == 0)
         {
-            difficultyPlus += 1;
-            if (difficultyPlus % 100 ==0 && difficulty >= 1)
-            {
-                difficulty -= 1;
-            }
+          
+            /*    difficultyPlus += 1;
+                if (difficultyPlus % 100 == 0 && difficulty >= 5)
+                {
+                    difficulty -= 1;
+                } */
+            
         }
         //Debug.Log(Time.captureFramerate);
+        Debug.Log(difficultyPlus);
     }
 }
