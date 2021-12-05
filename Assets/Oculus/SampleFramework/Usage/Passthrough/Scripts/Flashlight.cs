@@ -5,6 +5,9 @@ public class Flashlight : MonoBehaviour
     public GameObject lightVolume;
     public Light spotlight;
     public GameObject bulbGlow;
+    public AudioSource flashlightSound;
+
+    private bool lightSound;
 
     void LateUpdate()
     {
@@ -12,6 +15,16 @@ public class Flashlight : MonoBehaviour
         for (int i = 0; i < lightVolume.transform.childCount; i++)
         {
             lightVolume.transform.GetChild(i).rotation = Quaternion.LookRotation((lightVolume.transform.GetChild(i).position - Camera.main.transform.position).normalized);
+        }
+
+        if (!lightSound && spotlight.enabled)
+        {
+            lightSound = true;
+            flashlightSound.playOnAwake = true;
+            flashlightSound.PlayOneShot(flashlightSound.clip);
+        } else if (!spotlight.enabled)
+        {
+            lightSound = false;
         }
     }
 
