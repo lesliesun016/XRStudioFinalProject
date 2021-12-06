@@ -7,8 +7,6 @@ public class Flashlight : MonoBehaviour
     public GameObject bulbGlow;
     public AudioSource flashlightSound;
 
-    private bool lightSound;
-
     void LateUpdate()
     {
         // ensure all the light volume quads are camera-facing
@@ -17,15 +15,12 @@ public class Flashlight : MonoBehaviour
             lightVolume.transform.GetChild(i).rotation = Quaternion.LookRotation((lightVolume.transform.GetChild(i).position - Camera.main.transform.position).normalized);
         }
 
-        if (!lightSound && spotlight.enabled)
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
         {
-            lightSound = true;
             flashlightSound.playOnAwake = true;
+            flashlightSound.Stop();
             flashlightSound.PlayOneShot(flashlightSound.clip);
-        } else if (!spotlight.enabled)
-        {
-            lightSound = false;
-        }
+        } 
     }
 
     public void ToggleFlashlight()

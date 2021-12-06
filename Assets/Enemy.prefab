@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1959179776701852014
 Transform:
   m_ObjectHideFlags: 0
@@ -4944,6 +4944,7 @@ MonoBehaviour:
   ghost: {fileID: 8167956844696678457}
   ghost_normal: {fileID: 8300000, guid: 81d6b0f25d0fd954a8ebc69a8b634aab, type: 3}
   ghost_lit: {fileID: 8300000, guid: 2fccf2c3940cb7740894a5a08963be6a, type: 3}
+  ghostRender: {fileID: 8743954798049243688}
 --- !u!82 &8167956844696678457
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5127,5 +5128,10 @@ PrefabInstance:
 --- !u!4 &4669810284992855692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e198be3d18fa40e4bae9e965b36c10fe, type: 3}
+  m_PrefabInstance: {fileID: 5135448050756196711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8743954798049243688 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4747917413154575537, guid: e198be3d18fa40e4bae9e965b36c10fe, type: 3}
   m_PrefabInstance: {fileID: 5135448050756196711}
   m_PrefabAsset: {fileID: 0}

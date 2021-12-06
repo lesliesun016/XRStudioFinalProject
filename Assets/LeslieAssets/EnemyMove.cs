@@ -12,15 +12,20 @@ public class EnemyMove : MonoBehaviour
     public AudioClip ghost_normal;
     public AudioClip ghost_lit;
 
+    public Renderer ghostRender;
+
     private float speed = 3f;
     private bool collide;
 
     private bool litOn;
+    
+    private Color emissionColor;
 
     private void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
         spotlight = GameObject.FindWithTag("GameController").GetComponent<Light>();
+        emissionColor = ghostRender.material.GetColor("_EmissionColor");
     }
 
     // Update is called once per frame
@@ -35,6 +40,9 @@ public class EnemyMove : MonoBehaviour
         if (collide && spotlight.enabled)
         {
             gameObject.isStatic = true;
+            ghostRender.material.SetColor("_Color", Color.white);
+            ghostRender.material.SetColor("_EmissionColor", emissionColor * 2);
+            
 
             if (!litOn)
             {
@@ -49,7 +57,10 @@ public class EnemyMove : MonoBehaviour
             gameObject.isStatic = false;
             transform.rotation = Quaternion.Euler(-90, 0, 0);
             transform.LookAt(target.position);
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);           
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+            ghostRender.material.SetColor("_Color", Color.black);
+            ghostRender.material.SetColor("_EmissionColor", emissionColor * -2);
         }
 
         if (transform.position == target.position)
