@@ -12,7 +12,7 @@ public class EnemyMove : MonoBehaviour
     public AudioClip ghost_normal;
     public AudioClip ghost_lit;
 
-    private float speed = 1f;
+    private float speed = 3f;
     private bool collide;
 
     private bool litOn;
