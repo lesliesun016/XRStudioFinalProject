@@ -33,7 +33,6 @@ public class EnemyMove : MonoBehaviour
     {
         if (!ghost.isPlaying)
         {
-            litOn = false;
             ghost.PlayOneShot(ghost_normal);
         }
 
@@ -82,6 +81,7 @@ public class EnemyMove : MonoBehaviour
         if (other.tag == "Flashlight")
         {
             collide = false;
+            litOn = false;
         }
     }
 }
