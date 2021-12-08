@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: XRStudioFinalProject
+  productName: Ghost_Visor_3000
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -164,6 +164,9 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 5b552b0443d5e8d40bbf82c925253a0a, type: 2}
+  - {fileID: 0}
+  - {fileID: -4353472457941765468, guid: 6fc29a989c4547a49a212d87b8549c23, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -181,7 +184,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.XRStudioFinalProject
+    Android: com.DefaultCompany.Ghost_Visor_3000
     Standalone: com.DefaultCompany.XRStudioFinalProject
   buildNumber:
     Standalone: 0
