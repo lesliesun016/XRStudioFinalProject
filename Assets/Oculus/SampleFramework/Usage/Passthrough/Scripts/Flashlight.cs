@@ -6,6 +6,7 @@ public class Flashlight : MonoBehaviour
     public Light spotlight;
     public GameObject bulbGlow;
     public AudioSource flashlightSound;
+    public AudioClip flashlight_click; 
 
     void LateUpdate()
     {
