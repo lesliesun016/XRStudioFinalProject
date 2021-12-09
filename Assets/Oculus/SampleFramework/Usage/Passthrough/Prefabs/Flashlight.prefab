@@ -536,6 +536,8 @@ MonoBehaviour:
   lightVolume: {fileID: 5079691583783688699}
   spotlight: {fileID: 108960374990514434}
   bulbGlow: {fileID: 5636465923381072159}
+  flashlightSound: {fileID: 0}
+  flashlight_click: {fileID: 0}
 --- !u!114 &1898949362
 MonoBehaviour:
   m_ObjectHideFlags: 0

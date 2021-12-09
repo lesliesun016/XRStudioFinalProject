@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
+    public OVRInput.Controller vacuum;
+    public OVRInput.Button button = OVRInput.Button.One;
     public Transform target;
     public Light spotlight;
 
@@ -14,7 +16,9 @@ public class EnemyMove : MonoBehaviour
 
     public Renderer ghostRender;
 
-    private float speed = 3f;
+    private float speed = 2f;
+    private float normalSpeed = 2f;
+    private float slowSpeed = 0.2f;
     private bool collide;
 
     private bool litOn;
@@ -31,6 +35,9 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        transform.rotation = Quaternion.Euler(-90, 0, 0);
+        transform.LookAt(target.position);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         if (!ghost.isPlaying)
         {
             ghost.PlayOneShot(ghost_normal);
@@ -38,7 +45,15 @@ public class EnemyMove : MonoBehaviour
 
         if (collide && spotlight.enabled)
         {
-            gameObject.isStatic = true;
+
+            if (OVRInput.Get(button, vacuum) )
+            {
+                speed = normalSpeed;
+            } else
+            {
+                //gameObject.isStatic = true;
+                speed = slowSpeed;
+            }
             ghostRender.material.SetColor("_Color", Color.white);
             ghostRender.material.SetColor("_EmissionColor", emissionColor * 2);
             
@@ -54,6 +69,7 @@ public class EnemyMove : MonoBehaviour
         else
         {
             gameObject.isStatic = false;
+            speed = normalSpeed;
             transform.rotation = Quaternion.Euler(-90, 0, 0);
             transform.LookAt(target.position);
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);

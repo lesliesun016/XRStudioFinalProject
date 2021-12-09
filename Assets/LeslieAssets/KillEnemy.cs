@@ -33,6 +33,7 @@ public class KillEnemy : MonoBehaviour
             if (collide)
             {
                 enemy.transform.localScale -= new Vector3(speed, speed, speed);
+               // enemy.transform.position = Vector3.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, speed * Time.deltaTime);
                 if (!vacOn)
                 {
                     ghostAudioSource.Stop();

@@ -20,7 +20,7 @@ public class enemySpawn : MonoBehaviour
  
             //< "Interaction Test (Script)" > ().speed;
 
-        difficulty = 10;
+        difficulty = 15;
         spawnning = 0;
         difficultyPlus = 0;
         TickRef = 0;
@@ -37,7 +37,7 @@ public class enemySpawn : MonoBehaviour
     {
        // enemySpawnRot = new Vector3(-90, 0, 0);
         Quaternion enemySpawnRot = Quaternion.Euler(-90, 0, 0); //enemy spawn rot in quanternion instead of vector3
-        spawnPos = new Vector3(Random.Range(-50f, 50f), 0, Random.Range(-50f, 50f));
+        spawnPos = new Vector3(Random.Range(-25f, 25f), 0, Random.Range(-25f, 25f));
             // Instantiate(enemyPrefab, playerObject.transform.position + Vector3(1,0,1) * Random.Range(-15, 15), Quaternion.identity);
             Instantiate(enemyPrefab, spawnPos, enemySpawnRot);  
     }
