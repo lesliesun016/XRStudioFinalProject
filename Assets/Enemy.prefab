@@ -4974,7 +4974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b686dd669484cdd47a5e78c06ea311df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vacuum: 0
+  vacuum: 32
   button: 1
   target: {fileID: 0}
   spotlight: {fileID: 0}
@@ -4982,6 +4982,7 @@ MonoBehaviour:
   ghost_normal: {fileID: 8300000, guid: 81d6b0f25d0fd954a8ebc69a8b634aab, type: 3}
   ghost_lit: {fileID: 8300000, guid: 2fccf2c3940cb7740894a5a08963be6a, type: 3}
   ghostRender: {fileID: 8743954798049243688}
+  ghostAnimator: {fileID: 7480129591493097738}
 --- !u!82 &8167956844696678457
 AudioSource:
   m_ObjectHideFlags: 0

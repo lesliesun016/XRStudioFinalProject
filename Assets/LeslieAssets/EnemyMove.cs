@@ -15,20 +15,24 @@ public class EnemyMove : MonoBehaviour
     public AudioClip ghost_lit;
 
     public Renderer ghostRender;
+    public Animator ghostAnimator;
 
-    private float speed = 2f;
-    private float normalSpeed = 2f;
+    private float speed = 1.5f;
+    private float normalSpeed = 1.5f;
+    private float fastSpeed = 6f;
     private float slowSpeed = 0.2f;
     private bool collide;
 
     private bool litOn;
     
     private Color emissionColor;
+    private GameObject sp;
 
     private void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
-        spotlight = GameObject.FindWithTag("GameController").GetComponent<Light>();
+        sp = GameObject.FindWithTag("GameController");
+        if (sp != null) spotlight = sp.GetComponent<Light>();
         emissionColor = ghostRender.material.GetColor("_EmissionColor");
     }
 
@@ -43,16 +47,18 @@ public class EnemyMove : MonoBehaviour
             ghost.PlayOneShot(ghost_normal);
         }
 
-        if (collide && spotlight.enabled)
+        if (spotlight != null && collide && spotlight.enabled)
         {
 
             if (OVRInput.Get(button, vacuum) )
             {
-                speed = normalSpeed;
+                speed = fastSpeed;
+                ghostAnimator.Play("Die");
             } else
             {
                 //gameObject.isStatic = true;
                 speed = slowSpeed;
+                ghostAnimator.Play("Hurt");
             }
             ghostRender.material.SetColor("_Color", Color.white);
             ghostRender.material.SetColor("_EmissionColor", emissionColor * 2);
@@ -76,6 +82,7 @@ public class EnemyMove : MonoBehaviour
 
             ghostRender.material.SetColor("_Color", Color.black);
             ghostRender.material.SetColor("_EmissionColor", emissionColor * -2);
+            ghostAnimator.Play("Walk");
         }
 
         if (transform.position == target.position)
